@@ -1,0 +1,16 @@
+number,name,category,price
+1,Apple,Fruit,10
+2,Banana,Fruit,14
+3,Orange,Fruit,22
+4,Grapes,Fruit,33
+5,Watermelon,Fruit,44
+6,Peach,Fruit,13
+7,Mango,Fruit,22
+8,Pineapple,Fruit,55
+9,Strawberry,Fruit,66
+10,Blueberry,Fruit,77
+11,Milk,Dairy,15
+12,Cheese,Dairy,40
+13,Yogurt,Dairy,30
+14,Bread,Bakery,20
+15,Croissant,Bakery,25
