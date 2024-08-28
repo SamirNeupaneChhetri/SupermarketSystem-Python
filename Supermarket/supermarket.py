@@ -1,21 +1,26 @@
-class Supermarket:
-    def __init__ (self,filepath) ->None:
-        self.filepath = filepath
-        return None
-    
-    def loadProduct(self) :
-        product = []
-        try:
-            filehandle = open(self.filepath, "r", encoding='UTF-8')
-            file = filehandle.readline()
-            for row in file:
-                number = int(row['number'])
+import csv
+from product import Product
 
+class Supermarket:
+    def __init__(self, filepath) -> None:
+        self.filepath = filepath
+        self.products = []
+
+    def loadProduct(self):
+        try:
+            with open(self.filepath, mode='r', encoding='UTF-8') as filehandle:
+                csv_reader = csv.DictReader(filehandle)
+                for row in csv_reader:
+                    number = int(row['number'])
+                    name = row['name']
+                    category = row['category']
+                    price = float(row['price'])
+                    self.products.append(Product(number, name, category, price))
         except Exception as err:
-            print(f"Faild to read file '{self.filepath}' .")
+            print(f"Failed to read file '{self.filepath}'.")
             print(err)
             exit(-1)
 
-
-if __name__ == "__main__":
-    app = Supermarket()
+    def displayProducts(self):
+        for product in self.products:
+            product.display()
